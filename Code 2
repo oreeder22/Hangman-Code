@@ -1,0 +1,93 @@
+%start
+clc
+clear
+
+%Ask for player name
+playerName = input('What is your name?','s');
+
+%Welcome player
+fprintf('Welcome to Christman Hangman %s ! \n',playerName)
+
+%Check if player knows how to play 
+gameKnowledge = input('Do you know how to play? Type 1 for yes. Type 0 for no'); 
+
+%Instructions if command 
+if gameKnowledge ==1
+    fprintf('Good Luck, %s \n', playerName)
+else 
+    %fprintf(develop instructions
+    %Time to read instructions
+    pause(15)
+end 
+
+%Create Word Bank 
+wordBank = "engineering" 
+
+%Pick random # from 1 to size wordBank 
+%wordNumber = randi(size(wordBank),1);
+wordNumber = 1;
+
+%Use wordNumber as index for wordChoice array
+wordChoice = wordBank(wordNumber);
+
+%Tells a player how many letters are in the word
+lengthWord = strlength(wordChoice)
+
+%Creating a string
+stringWord = string(wordChoice)
+
+%For loop checking the word character by character
+%for i = 1:lengthWord 
+    %Emptyword(i) = '-'
+    
+%Display noose format that hangman drawing pieces will be attached to 
+if livesRemaining == 6
+    EmptyHangman = imread('EmptyHangman.jpg','jpg');
+    imshow(EmptyHangman,'InitialMagnification','fit'); 
+
+elseif livesRemaining == 5 
+    Five_lives = imread('Five_lives.jpg','jpg'); 
+    imshow(Five_lives, 'InitialMagnification','fit'); 
+
+elseif livesRemaining == 4 
+    Four_lives = imread('Four_lives.jpg','jpg'); 
+    imshow(Four_lives, 'InitialMagnification','fit'); 
+
+elseif livesRemaining == 3 
+    Three_lives = imread('Three_lives.jpg','jpg');
+    imshow(Three_lives,'InitialMagnification','fit'); 
+
+elseif livesRemaining == 2  
+    Two_lives = imread('Two_lives.jpg','jpg'); 
+    imshow(Two_lives,'InitialMagnification','fit'); 
+
+elseif livesRemanining == 1  
+    One_lives = imread('One_lives.jpg','jpg'); 
+    imshow(One_lives,'InitialMagnification','fit'); 
+
+elseif livesRemaining == 0 
+    fprintf('You lose \n Better luck next time! ')  
+
+end  
+
+%Display chances remaining (6) and length of word to user
+livesRemaining = 6; 
+
+%While loop (while lives remaining >0): Prompt player for an input ( a
+%sinlge input will be a letter, more than one character will mean they are
+%guessing the word)
+
+while livesRemaining > 0
+    fprintf('You have %f lives remaining',livesRemaining)
+    playerGuess = input('Guess a lowercase letter.'s')
+    
+    %if player guess is correct livesRemaining remains the same
+    if (contains(wordChoice, playerGuess)) || (playerGuess = ischar(wordChoice))
+        livesRemaining = livesRemaining
+        fprintf('That guess was correct. You have %f lives remaining.', livesRemaining)
+        
+        %if player guess is incorrect livesRemaining is subtracted by one
+    elseif livesRemaining = livesRemaining -1
+        %show the guess was incorrect and display new value of
+        %livesRemaining
+        fprintf('
